@@ -39,9 +39,20 @@ export default class Level extends Phaser.Scene {
     /* START-USER-CODE */
 
     // Write your code here
-
     create() {
         this.editorCreate();
+
+        var spaceKey = this.input.keyboard.addKey(
+            Phaser.Input.Keyboard.KeyCodes.SPACE
+        );
+
+        spaceKey.on("down", (key: KeyType, event: KeyboardEvent) => {
+            console.log("space ", key, event);
+        });
+
+        this.input.keyboard.on("keydown-A", function (event: KeyboardEvent) {
+            console.log("key 'A' down", event);
+        });
     }
 
     /* END-USER-CODE */
