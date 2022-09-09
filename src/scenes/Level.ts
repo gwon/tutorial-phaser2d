@@ -58,13 +58,18 @@ export default class Level extends Phaser.Scene {
             console.log("key 'A' down", event);
         });
 
-        this.fufuSuperDino.setInteractive();
+        this.fufuSuperDino.setInteractive({
+            useHandCursor: true,
+            cursor: "url(assets/cursors/pointer.cur), pointer",
+        });
 
         this.fufuSuperDino.on("pointerover", () => {
+            this.fufuSuperDino.setTint(0xff0000);
             console.log("pointer over fufuSuperDino");
         });
 
         this.fufuSuperDino.on("pointerout", () => {
+            this.fufuSuperDino.clearTint();
             console.log("pointerout fufuSuperDino");
         });
 
@@ -75,6 +80,20 @@ export default class Level extends Phaser.Scene {
         this.fufuSuperDino.on("pointerup", () => {
             console.log("pointerup fufuSuperDino");
         });
+
+        this.input.setDraggable(this.fufuSuperDino);
+        this.input.on(
+            "drag",
+            function (
+                pointer: any,
+                gameObject: any,
+                dragX: number,
+                dragY: number
+            ) {
+                gameObject.x = dragX;
+                gameObject.y = dragY;
+            }
+        );
     }
 
     /* END-USER-CODE */
