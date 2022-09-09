@@ -14,6 +14,7 @@
             "type": "Image",
             "id": "bb2d413c-02b3-404d-b1c0-cf46ce1e7f07",
             "label": "fufuSuperDino",
+            "scope": "CLASS",
             "components": [
                 "PushOnClick"
             ],
@@ -30,6 +31,8 @@
             "components": [],
             "x": 400,
             "y": 436,
+            "originX": 0.5,
+            "originY": 0.5,
             "text": "Phaser 3 + Phaser Editor 2D\nWebpack + TypeScript",
             "align": "center",
             "fontFamily": "Arial",
@@ -40,6 +43,7 @@
     "meta": {
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
-        "contentType": "phasereditor2d.core.scene.SceneContentType"
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
     }
 }

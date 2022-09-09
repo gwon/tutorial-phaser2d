@@ -33,8 +33,12 @@ export default class Level extends Phaser.Scene {
         // fufuSuperDino (components)
         new PushOnClick(fufuSuperDino);
 
+        this.fufuSuperDino = fufuSuperDino;
+
         this.events.emit("scene-awake");
     }
+
+    private fufuSuperDino!: Phaser.GameObjects.Image;
 
     /* START-USER-CODE */
 
@@ -50,8 +54,26 @@ export default class Level extends Phaser.Scene {
             console.log("space ", key, event);
         });
 
-        this.input.keyboard.on("keydown-A", function (event: KeyboardEvent) {
+        this.input.keyboard.on("keydown-A", (event: KeyboardEvent) => {
             console.log("key 'A' down", event);
+        });
+
+        this.fufuSuperDino.setInteractive();
+
+        this.fufuSuperDino.on("pointerover", () => {
+            console.log("pointer over fufuSuperDino");
+        });
+
+        this.fufuSuperDino.on("pointerout", () => {
+            console.log("pointerout fufuSuperDino");
+        });
+
+        this.fufuSuperDino.on("pointerdown", () => {
+            console.log("pointerdown fufuSuperDino");
+        });
+
+        this.fufuSuperDino.on("pointerup", () => {
+            console.log("pointerup fufuSuperDino");
         });
     }
 
