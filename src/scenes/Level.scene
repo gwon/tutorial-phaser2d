@@ -11,16 +11,17 @@
     },
     "displayList": [
         {
-            "type": "Image",
+            "prefabId": "6f4b0b24-93c8-4b37-88e4-330be2518041",
             "id": "bb2d413c-02b3-404d-b1c0-cf46ce1e7f07",
+            "unlock": [
+                "x",
+                "y"
+            ],
             "label": "fufuSuperDino",
             "scope": "CLASS",
             "components": [
                 "PushOnClick"
             ],
-            "texture": {
-                "key": "FufuSuperDino"
-            },
             "x": 400,
             "y": 235
         },

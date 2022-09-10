@@ -3,6 +3,7 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
+import DinoPrefab from "./DinoPrefab";
 import PushOnClick from "../components/PushOnClick";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
@@ -18,7 +19,8 @@ export default class Level extends Phaser.Scene {
 
     editorCreate(): void {
         // fufuSuperDino
-        const fufuSuperDino = this.add.image(400, 235, "FufuSuperDino");
+        const fufuSuperDino = new DinoPrefab(this, 400, 235);
+        this.add.existing(fufuSuperDino);
 
         // text
         const text = this.add.text(400, 436, "", {});
@@ -38,7 +40,7 @@ export default class Level extends Phaser.Scene {
         this.events.emit("scene-awake");
     }
 
-    private fufuSuperDino!: Phaser.GameObjects.Image;
+    private fufuSuperDino!: DinoPrefab;
 
     /* START-USER-CODE */
 
@@ -93,33 +95,6 @@ export default class Level extends Phaser.Scene {
                 gameObject.x = dragX;
                 gameObject.y = dragY;
             }
-        );
-
-        this.input.on(
-            "pointerdown",
-            (pointer: PointerEvent) => {
-                var timeline = this.tweens.createTimeline();
-
-                timeline.add({
-                    targets: this.fufuSuperDino,
-                    x: pointer.x,
-                    y: pointer.y,
-                    ease: Phaser.Math.Easing.Sine.InOut,
-                    duration: 500,
-                });
-
-                timeline.add({
-                    targets: this.fufuSuperDino,
-                    scaleX: 1.2,
-                    scaleY: 1.2,
-                    ease: Phaser.Math.Easing.Sine.InOut,
-                    duration: 100,
-                    yoyo: true,
-                });
-
-                timeline.play();
-            },
-            this
         );
     }
 
