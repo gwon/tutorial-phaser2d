@@ -94,6 +94,21 @@ export default class Level extends Phaser.Scene {
                 gameObject.y = dragY;
             }
         );
+
+        this.input.on(
+            "pointerdown",
+            (pointer: PointerEvent) => {
+                const img = this.add.image(
+                    pointer.x,
+                    pointer.y,
+                    "FufuSuperDino",
+                    Phaser.Math.Between(0, 5)
+                );
+
+                img.setScale(0.2, 0.2);
+            },
+            this
+        );
     }
 
     /* END-USER-CODE */
