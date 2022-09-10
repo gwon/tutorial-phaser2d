@@ -98,14 +98,14 @@ export default class Level extends Phaser.Scene {
         this.input.on(
             "pointerdown",
             (pointer: PointerEvent) => {
-                const img = this.add.image(
-                    pointer.x,
-                    pointer.y,
-                    "FufuSuperDino",
-                    Phaser.Math.Between(0, 5)
-                );
-
-                img.setScale(0.2, 0.2);
+                var tween = this.tweens.add({
+                    targets: this.fufuSuperDino,
+                    x: pointer.x,
+                    y: pointer.y,
+                    ease: Phaser.Math.Easing.Sine.InOut,
+                    duration: 500,
+                    // delay: 2000,
+                });
             },
             this
         );
