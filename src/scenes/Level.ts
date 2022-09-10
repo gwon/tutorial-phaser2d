@@ -98,14 +98,26 @@ export default class Level extends Phaser.Scene {
         this.input.on(
             "pointerdown",
             (pointer: PointerEvent) => {
-                var tween = this.tweens.add({
+                var timeline = this.tweens.createTimeline();
+
+                timeline.add({
                     targets: this.fufuSuperDino,
                     x: pointer.x,
                     y: pointer.y,
                     ease: Phaser.Math.Easing.Sine.InOut,
                     duration: 500,
-                    // delay: 2000,
                 });
+
+                timeline.add({
+                    targets: this.fufuSuperDino,
+                    scaleX: 1.2,
+                    scaleY: 1.2,
+                    ease: Phaser.Math.Easing.Sine.InOut,
+                    duration: 100,
+                    yoyo: true,
+                });
+
+                timeline.play();
             },
             this
         );
