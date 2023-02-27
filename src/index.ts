@@ -34,5 +34,5 @@ window.addEventListener('load', function () {
 	});
 
 	game.scene.start("Boot");
-
+	console.log("Test???")
 });
